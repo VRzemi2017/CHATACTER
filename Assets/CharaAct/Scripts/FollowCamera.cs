@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour {
 
-	// Use this for initialization
+	public float turnSpeed = 4.0f;
+	public Transform target;
+
+	private Vector3 offset;
+
 	void Start () {
-		
+		offset = new Vector3(target.position.x, target.position.y + 45.0f, target.position.z + 7.0f);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	void LateUpdate()
+	{
+		offset = Quaternion.AngleAxis (Input.GetAxis("Mouse X") * turnSpeed, Vector3.up) * offset;
+		transform.position = target.position + offset; 
+		transform.LookAt(target.position);
 	}
 }
