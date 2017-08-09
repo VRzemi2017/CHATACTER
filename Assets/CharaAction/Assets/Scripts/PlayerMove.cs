@@ -8,9 +8,9 @@ public class PlayerMove : MonoBehaviour {
 	public float upF = 10.0f;
 	public float downF = 10.0f;
 
-	void Start () {
+	/*void Start () {
 		Cursor.lockState = CursorLockMode.Locked;
-	}
+	}*/
 	
 
 	void Update () {
@@ -24,8 +24,8 @@ public class PlayerMove : MonoBehaviour {
 		transform.Translate (0, up, 0);
 		transform.Translate (0, -down, 0);
 
-		if(Input.GetKeyDown(KeyCode.Escape)){
+		/*if(Input.GetKeyDown(KeyCode.Escape)){
 			Cursor.lockState = CursorLockMode.None;
-		}
+		}*/
 	}
 }

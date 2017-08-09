@@ -45,15 +45,18 @@ public class Crawler: MonoBehaviour {
 	Rigidbody rigidbody;
 
 	//Targeting
-	public Transform target;
+	private Transform target;
+	private float searchRange = 15.0f;
 
 	[SerializeField]
 	private Transform[] patrolTarget;
+
 	private int curPatrolTarget;
+	private int nextPatrolTarget;
 
 	bool patrolLoop = false;
 	bool playerSpotted = false;
-	public float agroDis = 15f;
+	public float agroDis = 30.0f;
 	private float clingDis = 2.5f;
 	private float closeEnough = 2.5f;
 
@@ -98,12 +101,16 @@ public class Crawler: MonoBehaviour {
 
 
 	private void Update(){
+
 		// SWITCH 
 		switch (curState) {
 
+		//Search	
 		case enemyState.SEARCH:
+			Search ();
 			break;
-
+		
+		//Target P1
 		case enemyState.TARGET_PLAYER1:
 			target = player1.transform;
 			moveSpeed = 2.0f;
@@ -112,6 +119,7 @@ public class Crawler: MonoBehaviour {
 			Debug.Log ("Target : " + target); 
 			break;
 		
+		//Target P2
 		case enemyState.TARGET_PLAYER2:
 			target = player2.transform;
 			moveSpeed = 2.0f;
@@ -119,21 +127,26 @@ public class Crawler: MonoBehaviour {
 			myTransform.position = Vector3.MoveTowards (myTransform.position, player2.position, moveSpeed * Time.deltaTime);
 			Debug.Log ("Target : " + target); 
 			break;
-		
+
+		//Target closest path
 		case enemyState.TARGET_CLOSEST:
 			target = GameObject.FindGameObjectWithTag ("Patrol Target").transform;
 			Debug.Log ("Target : " + target); 
 			break;
 		
+		//Target player's staff and vibrate controller
 		case enemyState.TARGET_STAFF:
 			target = GameObject.FindGameObjectWithTag ("GameController").transform;
 			Debug.Log ("Target : " + target); 
 			break;
 
+		//Target random path point
 		case enemyState.TARGET_RANDOM:
-			Debug.Log ("Target : " + target); 
+			Debug.Log ("Target : " + target);
+			target = GameObject.FindGameObjectWithTag ("Patrol Target").transform;
 			break;
 
+		// Stop
 		case enemyState.PAUSE:
 			moveSpeed = 0f;
 			Debug.Log ("Target : " + target); 
@@ -141,26 +154,44 @@ public class Crawler: MonoBehaviour {
 
 		}
 
-		Vibro vibro = GetComponent<Vibro> ();
+		/*Vibro vibro = GetComponent<Vibro> ();
 		if (Vector3.Distance (myTransform.position, player1.transform.position) <= clingDis) {
 			vibro.rumbleController ();
-		}
+		}*/
 
 		Move ();
+
+		// if state is null do Search
+		if (curState == null) {
+			curState = enemyState.SEARCH;
+		}
+
 	}
 
-	public void OnTriggerEnter (Collider other){
+	// Lose target
+	public void OnTriggerExit (Collider other){
 		if (other.tag == "Player1") {
-			curState = enemyState.TARGET_PLAYER1;
+			curState = enemyState.SEARCH;
 		} else if (other.tag == "Player2") {
+			curState = enemyState.SEARCH;
+		}
+	}
+
+	private void Search(){
+		Ray ray;
+		RaycastHit hit;
+		ray = new Ray (myTransform.position, myTransform.forward);
+		Vector3 forward = transform.TransformDirection (Vector3.forward) * searchRange; // ray debug
+		Debug.DrawRay (transform.position, forward, Color.green);						// ray debug
+		// Get target
+		if (Physics.Raycast (ray, out hit, searchRange) && hit.transform.tag == "Player1") {
+			curState = enemyState.TARGET_PLAYER1;
+		} else if (hit.transform.tag == "Player2") {
 			curState = enemyState.TARGET_PLAYER2;
 		} 
 	}
-
-
-
-
-
+		
+	// Move towards target
 	private void Move(){
 		//direction set
 		Vector3 direction = target.position - transform.position; 
@@ -177,11 +208,13 @@ public class Crawler: MonoBehaviour {
 		//if (Input.GetButtonDown("Jump")){ // MANUAL CONTROLS
 		// new ray
 		ray = new Ray(myTransform.position, myTransform.forward);
+		Vector3 forward = transform.TransformDirection (Vector3.forward) * jumpRange; // ray debug	
+		Debug.DrawRay (transform.position, forward, Color.red); 					  // ray debug
 		if (Physics.Raycast(ray, out hit, jumpRange)){ // wall check
 			JumpToWall(hit.point, hit.normal); // init JumpToWall IF wall ahead
 			rigidbody.velocity += jumpSpeed * myNormal;
 		}
-		/*else if (isGrounded){ // no: if grounded, jump up // HOPPING
+		/*else if (isGrounded){ // if grounded, jump up // HOPPING
 				rigidbody.velocity += jumpSpeed * myNormal;
 			}*/
 		//}
@@ -219,17 +252,16 @@ public class Crawler: MonoBehaviour {
 
 
 	private void JumpToWall(Vector3 point, Vector3 normal){
-		// jump to wall
+		// Jump to wall
 		jumping = true; 
-		rigidbody.isKinematic = true; // disable physics while jumping
+		rigidbody.isKinematic = true; // Disable physics while jumping
 		Vector3 orgPos = myTransform.position;
 		Quaternion orgRot = myTransform.rotation;
-		Vector3 dstPos = point + normal * (distGround + 0.5f); // will jump to 0.5 above wall
+		Vector3 dstPos = point + normal * (distGround + 0.5f); // Will jump to 0.5 above wall
 		Vector3 myForward = Vector3.Cross(myTransform.right, normal);
 		Quaternion dstRot = Quaternion.LookRotation(myForward, normal);
 
 		StartCoroutine (jumpTime (orgPos, orgRot, dstPos, dstRot, normal));
-		//jumptime
 	}
 
 	private IEnumerator jumpTime(Vector3 orgPos, Quaternion orgRot, Vector3 dstPos, Quaternion dstRot, Vector3 normal) {
