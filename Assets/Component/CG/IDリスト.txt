@@ -1,0 +1,34 @@
+大樹	        ltree  ★　●
+樹木      	stree  ★　●
+樹木(low)	lowst  ★　●
+人面樹   	ftree
+人面樹(low)	lowft  ★　●
+食虫植物	utsup  ★
+シダ植物	sidap  ★
+植物(小)	warap  ★　●
+植物(長)	lnyop  ★
+植物(長）幼い	snyop  ★
+植物(丸)	tomap  ★
+植物(実)	facep  ★
+ゼンマイ	zenmp  ★
+デスアケビ	akbep  ★
+ハエトリソウ	packp  ★
+花	        flowp  ★
+	
+
+鎧蟻     	ant    ★　●
+蛇	        snake  ★　●　蛇はデザイナー側でレイアウト対応します
+猿	        monky  ★　●
+デスムカデ	pendr  ★　●
+デスムカデ(low)	lowpn  ★　●
+デスノミ	flea   ★　●
+デスカルゴ	dskrg  ★　●
+岩	        rock   ★　●
+地面	        plane　　　●
+
+
+杖　　　　　　　cane           杖＋クリスタルセット  
+クリスタル　　　crystal_act　　クリスタルのみ
+
+補足：★のついているものはレイアウトができていません。
+　　　●に関しては今後差し替える予定です（テクスチャなどは仮ではありますがIDの部分は用意してありますのでこちらも差し替えで対応予定です。）

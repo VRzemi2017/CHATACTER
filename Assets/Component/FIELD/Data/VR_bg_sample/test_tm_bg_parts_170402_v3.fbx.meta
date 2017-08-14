@@ -1,0 +1,213 @@
+fileFormatVersion: 2
+guid: 0231dc36ed55e5f48a4b026b9361d5a9
+timeCreated: 1491114604
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: human
+    100002: //RootNode
+    100004: tm_bg_mesh_001
+    100006: tm_bg_mesh_002
+    100008: tm_bg_mesh_003
+    100010: tm_bg_mesh_004
+    100012: tm_bg_mesh_005
+    100014: tm_bg_mesh_006
+    100016: tm_bg_mesh_007
+    100018: tm_bg_mesh_008
+    100020: tm_bg_mesh_009
+    100022: tm_bg_mesh_010
+    100024: tm_bg_mesh_011
+    100026: tm_bg_mesh_012
+    100028: tm_bg_mesh_013
+    100030: tm_bg_mesh_014
+    100032: tm_bg_mesh_015
+    100034: tm_bg_mesh_016
+    100036: tm_bg_mesh_017
+    100038: tm_bg_mesh_018
+    100040: tm_bg_mesh_019
+    100042: tm_bg_mesh_020
+    100044: tm_bg_mesh_021
+    100046: tm_bg_mesh_022
+    100048: tm_bg_mesh_023
+    100050: tm_bg_mesh_024
+    100052: tm_bg_mesh_025
+    100054: tm_bg_test_v170316
+    100056: tm_ef_mesh
+    100058: tm_ef_mesh_001
+    400000: human
+    400002: //RootNode
+    400004: tm_bg_mesh_001
+    400006: tm_bg_mesh_002
+    400008: tm_bg_mesh_003
+    400010: tm_bg_mesh_004
+    400012: tm_bg_mesh_005
+    400014: tm_bg_mesh_006
+    400016: tm_bg_mesh_007
+    400018: tm_bg_mesh_008
+    400020: tm_bg_mesh_009
+    400022: tm_bg_mesh_010
+    400024: tm_bg_mesh_011
+    400026: tm_bg_mesh_012
+    400028: tm_bg_mesh_013
+    400030: tm_bg_mesh_014
+    400032: tm_bg_mesh_015
+    400034: tm_bg_mesh_016
+    400036: tm_bg_mesh_017
+    400038: tm_bg_mesh_018
+    400040: tm_bg_mesh_019
+    400042: tm_bg_mesh_020
+    400044: tm_bg_mesh_021
+    400046: tm_bg_mesh_022
+    400048: tm_bg_mesh_023
+    400050: tm_bg_mesh_024
+    400052: tm_bg_mesh_025
+    400054: tm_bg_test_v170316
+    400056: tm_ef_mesh
+    400058: tm_ef_mesh_001
+    2300000: human
+    2300002: tm_bg_mesh_001
+    2300004: tm_bg_mesh_002
+    2300006: tm_bg_mesh_003
+    2300008: tm_bg_mesh_004
+    2300010: tm_bg_mesh_005
+    2300012: tm_bg_mesh_006
+    2300014: tm_bg_mesh_007
+    2300016: tm_bg_mesh_008
+    2300018: tm_bg_mesh_009
+    2300020: tm_bg_mesh_010
+    2300022: tm_bg_mesh_011
+    2300024: tm_bg_mesh_012
+    2300026: tm_bg_mesh_013
+    2300028: tm_bg_mesh_014
+    2300030: tm_bg_mesh_015
+    2300032: tm_bg_mesh_016
+    2300034: tm_bg_mesh_017
+    2300036: tm_bg_mesh_018
+    2300038: tm_bg_mesh_019
+    2300040: tm_bg_mesh_021
+    2300042: tm_bg_mesh_022
+    2300044: tm_bg_mesh_023
+    2300046: tm_bg_mesh_024
+    2300048: tm_bg_mesh_025
+    2300050: tm_ef_mesh
+    2300052: tm_ef_mesh_001
+    3300000: human
+    3300002: tm_bg_mesh_001
+    3300004: tm_bg_mesh_002
+    3300006: tm_bg_mesh_003
+    3300008: tm_bg_mesh_004
+    3300010: tm_bg_mesh_005
+    3300012: tm_bg_mesh_006
+    3300014: tm_bg_mesh_007
+    3300016: tm_bg_mesh_008
+    3300018: tm_bg_mesh_009
+    3300020: tm_bg_mesh_010
+    3300022: tm_bg_mesh_011
+    3300024: tm_bg_mesh_012
+    3300026: tm_bg_mesh_013
+    3300028: tm_bg_mesh_014
+    3300030: tm_bg_mesh_015
+    3300032: tm_bg_mesh_016
+    3300034: tm_bg_mesh_017
+    3300036: tm_bg_mesh_018
+    3300038: tm_bg_mesh_019
+    3300040: tm_bg_mesh_021
+    3300042: tm_bg_mesh_022
+    3300044: tm_bg_mesh_023
+    3300046: tm_bg_mesh_024
+    3300048: tm_bg_mesh_025
+    3300050: tm_ef_mesh
+    3300052: tm_ef_mesh_001
+    4300000: human
+    4300002: tm_bg_mesh_001
+    4300004: tm_bg_mesh_002
+    4300006: tm_bg_mesh_003
+    4300008: tm_bg_mesh_004
+    4300010: tm_bg_mesh_005
+    4300012: tm_bg_mesh_006
+    4300014: tm_bg_mesh_007
+    4300016: tm_bg_mesh_008
+    4300018: tm_bg_mesh_009
+    4300020: tm_bg_mesh_010
+    4300022: tm_bg_mesh_011
+    4300024: tm_bg_mesh_012
+    4300026: tm_bg_mesh_013
+    4300028: tm_bg_mesh_014
+    4300030: tm_bg_mesh_015
+    4300032: tm_bg_mesh_016
+    4300034: tm_bg_mesh_017
+    4300036: tm_bg_mesh_018
+    4300038: tm_bg_mesh_019
+    4300040: tm_bg_mesh_021
+    4300042: tm_bg_mesh_022
+    4300044: tm_bg_mesh_023
+    4300046: tm_bg_mesh_024
+    4300048: tm_bg_mesh_025
+    4300050: tm_ef_mesh
+    4300052: tm_ef_mesh_001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
