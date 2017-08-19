@@ -6,8 +6,7 @@ using UnityEngine.AI;
 public class Crawler: MonoBehaviour {
 		
 	//Basic parametrs
-	public float moveSpeed = 2;     // move speed
-	private float disToGround = 2.5f;
+	public float moveSpeed = 5.0f;     // move speed
 
 	//Self components
 	private Transform myTransform;
@@ -36,7 +35,7 @@ public class Crawler: MonoBehaviour {
 		rbody = GetComponent<Rigidbody> (); 						     // RBody get
 		myTransform = transform; 										 // Transform set
 		player1 = GameObject.FindGameObjectWithTag("Player1").transform; // find Player1 position
-		player2 = GameObject.FindGameObjectWithTag ("Player2").transform;// find Player2 position
+//		player2 = GameObject.FindGameObjectWithTag ("Player2").transform;// find Player2 position
 	}
 		
 	private void Update(){
@@ -48,10 +47,10 @@ public class Crawler: MonoBehaviour {
 			nowTarget = 0;
 		}
 
-		// Attack player within range 
-		/*if (Vector3.Distance (myTransform.position - player1.position) <= agroDis) {
+		/*// Attack player within range 
+		if (Vector3.Distance (myTransform.position, player1.position) <= agroDis) {
 			AttackPlayer1 ();
-		} else if (Vector3.Distance (myTransform.position - player2.position) <= agroDis) {
+		} else if (Vector3.Distance (myTransform.position, player2.position) <= agroDis) {
 			AttackPlayer2 ();
 		} */
 	}
@@ -88,7 +87,7 @@ public class Crawler: MonoBehaviour {
 			stopTimer = 3.0f;
 			moveSpeed = 15.0f;
 		} else {
-			moveSpeed = 2.0f;
+			moveSpeed = 5.0f;
 		}
 
 		// Rotate transform towards next target
@@ -103,8 +102,9 @@ public class Crawler: MonoBehaviour {
 			stopTimer = 0.5f;
 		}
 	}
-	/*	
-    // Player1 interaction
+
+		
+  /*  // Player1 interaction
     private void AttackPlayer1() {
 		moveSpeed = 5.0f;
 		Vector3 target = player1.position;

@@ -14,14 +14,8 @@ public class CharaManager : MonoBehaviour {
 	private GameObject enemy04;
 	[SerializeField]
 	private GameObject enemy05;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	[SerializeField]
+	private GameObject enemy06;
+	[SerializeField]
+	private GameObject enemy07;
 }
