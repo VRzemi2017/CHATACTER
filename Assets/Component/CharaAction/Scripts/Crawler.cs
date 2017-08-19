@@ -25,7 +25,7 @@ public class Crawler: MonoBehaviour {
 	// Path loop
 	public bool patrolLoop;
 	private bool playerSpotted = false; // Player spotted
-	public float agroDis = 10.0f; // Player attack distance
+	public float agroDis = 10.0f; 		// Player attack distance
 
 	//Players
 	private Transform player1;
@@ -34,7 +34,7 @@ public class Crawler: MonoBehaviour {
 	private void Start( ){
 		rbody = GetComponent<Rigidbody> (); 						     // RBody get
 		myTransform = transform; 										 // Transform set
-		player1 = GameObject.FindGameObjectWithTag("Player1").transform; // find Player1 position
+		player1 = GameObject.FindGameObjectWithTag("MainCamera").transform; // find Player1 position
 //		player2 = GameObject.FindGameObjectWithTag ("Player2").transform;// find Player2 position
 	}
 		
@@ -45,10 +45,12 @@ public class Crawler: MonoBehaviour {
 			Move ();
 		} else if (patrolLoop) {
 			nowTarget = 0;
+		} else if (Vector3.Distance (myTransform.position, player1.position) <= agroDis) {
+			AttackPlayer1 ();
 		}
 
-		/*// Attack player within range 
-		if (Vector3.Distance (myTransform.position, player1.position) <= agroDis) {
+		// Attack player within range 
+		/*if (Vector3.Distance (myTransform.position, player1.position) <= agroDis) {
 			AttackPlayer1 ();
 		} else if (Vector3.Distance (myTransform.position, player2.position) <= agroDis) {
 			AttackPlayer2 ();
@@ -104,15 +106,16 @@ public class Crawler: MonoBehaviour {
 	}
 
 		
-  /*  // Player1 interaction
+  // Player1 interaction
     private void AttackPlayer1() {
+		Debug.Log ("Attacked Player1");
 		moveSpeed = 5.0f;
 		Vector3 target = player1.position;
 		Vector3 dir = player1.position - myTransform.position;
 		myTransform.position = Vector3.MoveTowards (myTransform.position, target, moveSpeed * Time.deltaTime);
     }
 
-	// Player2 interaction
+	/*// Player2 interaction
 	private void AttackPlayer2() {
 		moveSpeed = 5.0f;
 		Vector3 target = player2.position;
