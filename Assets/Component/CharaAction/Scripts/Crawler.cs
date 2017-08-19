@@ -6,18 +6,18 @@ using UnityEngine.AI;
 public class Crawler: MonoBehaviour {
 		
 	//Basic parametrs
-	public float moveSpeed = 2; // move speed
+	public float moveSpeed = 2;     // move speed
 	private float disToGround = 2.5f;
 
 	//Self components
 	private Transform myTransform;
-	private Rigidbody rigidbody;
+	private Rigidbody rbody;
 
 	//Targeting
 	[SerializeField]
-	private Transform[] targets;
+	private Transform[] targets; // target array
 
-	private int nowTarget;
+	private int nowTarget; // current target
 	private Transform lastTarget;
 
 	// Time manager
@@ -26,19 +26,18 @@ public class Crawler: MonoBehaviour {
 
 	// Path loop
 	public bool patrolLoop;
-	private bool playerSpotted = false;
-	public float agroDis = 30.0f;
-	private float clingDis = 2.5f;
+	private bool playerSpotted = false; // Player spotted
+	public float agroDis = 30.0f; // Player spot distance
 
 	//Players
 	private Transform player1;
 	private Transform player2;
 
 	private void Start( ){
-		rigidbody = GetComponent<Rigidbody> (); 						// RBody get
-		myTransform = transform; 										// Transform set
+		rbody = GetComponent<Rigidbody> (); 						     // RBody get
+		myTransform = transform; 										 // Transform set
 		player1 = GameObject.FindGameObjectWithTag("Player1").transform; // find Player1 position
-	//	player2 = GameObject.FindGameObjectWithTag ("Player2").transform; // find Player2 position
+	//	player2 = GameObject.FindGameObjectWithTag ("Player2").transform;// find Player2 position
 	}
 		
 	private void Update(){
@@ -88,7 +87,6 @@ public class Crawler: MonoBehaviour {
 
 		// DEBUG LOG NEXT TARGET CHECK
 		if (other.tag == "SpeedUp" || other.tag == "SpeedNormal" || other.tag == "nowTarget" || other.tag == "Wait" ) {
-			Debug.Log ("Next target" + targets[nowTarget]);
 			myTransform.LookAt (targets [nowTarget + 1]);
 		}
 	}
