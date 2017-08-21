@@ -11,6 +11,7 @@ public class GemController : MonoBehaviour {
     [SerializeField] GameObject m_LineRenderer;
 
     private bool m_is_hit_gem = false;
+    private bool m_is_game_start = false;
 
 
     private List<GameObject> m_SmallGemList = new List<GameObject>();
@@ -27,7 +28,11 @@ public class GemController : MonoBehaviour {
             gem.transform.RotateAround( m_SmallGemParent.position, m_SmallGemParent.forward, 1f );
         }
     }
+
     private void OnTriggerEnter(Collider collision) {
+        if (!m_is_game_start) {
+            return;
+        }
         //ヒットした物の種類を取得するを取得する
         switch (collision.gameObject.tag){
             case "Gem":
@@ -54,8 +59,13 @@ public class GemController : MonoBehaviour {
         m_Gem.GetComponent<Renderer>( ).material.SetColor( "_EmissionColor", m_GemColor[gem_num] );
         m_LineRenderer.GetComponent<Renderer>( ).material.SetColor( "_EmissionColor", m_GemColor[gem_num] );
     }
+
     public void ResetHitState() {
         m_is_hit_gem = false;
+    }
+
+    public void SetGameStart(bool start) {
+        m_is_game_start = start;
     }
 
 }

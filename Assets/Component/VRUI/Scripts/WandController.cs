@@ -5,7 +5,7 @@ using UnityEngine;
 public class WandController : MonoBehaviour {
     [SerializeField] GameObject m_WandModel;
 
-    [SerializeField] line2 m_Line;
+    [SerializeField] LineRendererController m_Line;
 
     private WandManager.WAND_STATE m_wand_state;
     private WandManager.PLAYER_STATE m_player_state;
@@ -31,7 +31,6 @@ public class WandController : MonoBehaviour {
                 break;
         }
     }
-
     private void ChageWandState ( ) {
         m_wand_state = WandManager.WAND_STATE.IDEL;
         if ( m_Line.IsWarpInput ) {
@@ -48,6 +47,12 @@ public class WandController : MonoBehaviour {
             m_player_state = WandManager.PLAYER_STATE.DAMAGE;
             m_is_hit_enemy = false;
         }
-
+    }
+    public void SetBehaviorActive(bool active) {
+        if (!active) {
+            m_Line.DeleteLine();
+            m_Line.DeleteTarget();
+        }
+        m_Line.enabled = active;
     }
 }

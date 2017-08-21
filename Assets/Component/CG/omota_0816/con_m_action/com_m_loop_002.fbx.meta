@@ -1,0 +1,310 @@
+fileFormatVersion: 2
+guid: 1587e59663de80c48b2749e82efacd0e
+timeCreated: 1502862811
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: con_m_loop_001
+    100004: con_m_loop_002
+    100006: con_m_loop_003
+    100008: con_m_loop_004
+    100010: con_m_loop_005
+    100012: con_m_loop_006
+    100014: con_m_loop_007
+    100016: con_m_loop_008
+    100018: con_m_loop_009
+    100020: con_m_loop_010
+    100022: con_m_loop_011
+    100024: con_m_loop_012
+    100026: con_m_loop_013
+    100028: mesh_001
+    100030: mesh_002
+    100032: mesh_003
+    100034: mesh_004
+    100036: mesh_005
+    100038: mesh_006
+    100040: mesh_007
+    100042: mesh_008
+    100044: mesh_009
+    100046: mesh_010
+    100048: mesh_011
+    100050: mesh_012
+    100052: mesh_013
+    100054: mesh_014
+    100056: mesh_015
+    100058: mesh_016
+    100060: mesh_017
+    100062: mesh_018
+    100064: mesh_ring_001
+    100066: mesh_ring_003
+    100068: mesh_ring_004
+    400000: //RootNode
+    400002: con_m_loop_001
+    400004: con_m_loop_002
+    400006: con_m_loop_003
+    400008: con_m_loop_004
+    400010: con_m_loop_005
+    400012: con_m_loop_006
+    400014: con_m_loop_007
+    400016: con_m_loop_008
+    400018: con_m_loop_009
+    400020: con_m_loop_010
+    400022: con_m_loop_011
+    400024: con_m_loop_012
+    400026: con_m_loop_013
+    400028: mesh_001
+    400030: mesh_002
+    400032: mesh_003
+    400034: mesh_004
+    400036: mesh_005
+    400038: mesh_006
+    400040: mesh_007
+    400042: mesh_008
+    400044: mesh_009
+    400046: mesh_010
+    400048: mesh_011
+    400050: mesh_012
+    400052: mesh_013
+    400054: mesh_014
+    400056: mesh_015
+    400058: mesh_016
+    400060: mesh_017
+    400062: mesh_018
+    400064: mesh_ring_001
+    400066: mesh_ring_003
+    400068: mesh_ring_004
+    2300000: mesh_001
+    2300002: mesh_002
+    2300004: mesh_003
+    2300006: mesh_004
+    2300008: mesh_005
+    2300010: mesh_006
+    2300012: mesh_007
+    2300014: mesh_008
+    2300016: mesh_009
+    2300018: mesh_010
+    2300020: mesh_011
+    2300022: mesh_012
+    2300024: mesh_013
+    2300026: mesh_014
+    2300028: mesh_015
+    2300030: mesh_016
+    2300032: mesh_017
+    2300034: mesh_018
+    2300036: mesh_ring_001
+    2300038: mesh_ring_003
+    2300040: mesh_ring_004
+    3300000: mesh_001
+    3300002: mesh_002
+    3300004: mesh_003
+    3300006: mesh_004
+    3300008: mesh_005
+    3300010: mesh_006
+    3300012: mesh_007
+    3300014: mesh_008
+    3300016: mesh_009
+    3300018: mesh_010
+    3300020: mesh_011
+    3300022: mesh_012
+    3300024: mesh_013
+    3300026: mesh_014
+    3300028: mesh_015
+    3300030: mesh_016
+    3300032: mesh_017
+    3300034: mesh_018
+    3300036: mesh_ring_001
+    3300038: mesh_ring_003
+    3300040: mesh_ring_004
+    4300000: mesh_ring_001
+    4300002: mesh_ring_003
+    4300004: mesh_ring_004
+    4300006: mesh_001
+    4300008: mesh_002
+    4300010: mesh_003
+    4300012: mesh_004
+    4300014: mesh_005
+    4300016: mesh_006
+    4300018: mesh_007
+    4300020: mesh_008
+    4300022: mesh_009
+    4300024: mesh_010
+    4300026: mesh_011
+    4300028: mesh_012
+    4300030: mesh_013
+    4300032: mesh_014
+    4300034: mesh_015
+    4300036: mesh_016
+    4300038: mesh_017
+    4300040: mesh_018
+    7400000: Loop2
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Loop2
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: con_m_loop_001
+        weight: 1
+      - path: con_m_loop_001/mesh_ring_001
+        weight: 1
+      - path: con_m_loop_001/mesh_ring_003
+        weight: 1
+      - path: con_m_loop_001/mesh_ring_004
+        weight: 1
+      - path: con_m_loop_002
+        weight: 1
+      - path: con_m_loop_002/mesh_001
+        weight: 1
+      - path: con_m_loop_002/mesh_002
+        weight: 1
+      - path: con_m_loop_003
+        weight: 1
+      - path: con_m_loop_003/mesh_003
+        weight: 1
+      - path: con_m_loop_003/mesh_004
+        weight: 1
+      - path: con_m_loop_004
+        weight: 1
+      - path: con_m_loop_004/mesh_005
+        weight: 1
+      - path: con_m_loop_004/mesh_006
+        weight: 1
+      - path: con_m_loop_005
+        weight: 1
+      - path: con_m_loop_005/mesh_007
+        weight: 1
+      - path: con_m_loop_005/mesh_008
+        weight: 1
+      - path: con_m_loop_006
+        weight: 1
+      - path: con_m_loop_006/mesh_009
+        weight: 1
+      - path: con_m_loop_006/mesh_010
+        weight: 1
+      - path: con_m_loop_007
+        weight: 1
+      - path: con_m_loop_007/mesh_011
+        weight: 1
+      - path: con_m_loop_007/mesh_012
+        weight: 1
+      - path: con_m_loop_008
+        weight: 1
+      - path: con_m_loop_008/mesh_013
+        weight: 1
+      - path: con_m_loop_009
+        weight: 1
+      - path: con_m_loop_009/mesh_014
+        weight: 1
+      - path: con_m_loop_010
+        weight: 1
+      - path: con_m_loop_010/mesh_015
+        weight: 1
+      - path: con_m_loop_011
+        weight: 1
+      - path: con_m_loop_011/mesh_016
+        weight: 1
+      - path: con_m_loop_012
+        weight: 1
+      - path: con_m_loop_012/mesh_017
+        weight: 1
+      - path: con_m_loop_013
+        weight: 1
+      - path: con_m_loop_013/mesh_018
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
