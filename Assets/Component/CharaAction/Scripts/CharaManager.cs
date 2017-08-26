@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class CharaManager : MonoBehaviour {
 
-	[SerializeField]
-	private GameObject enemy01;
-	[SerializeField]
-	private GameObject enemy02;
-	[SerializeField]
-	private GameObject enemy03;
-	[SerializeField]
-	private GameObject enemy04;
-	[SerializeField]
-	private GameObject enemy05;
-	[SerializeField]
-	private GameObject enemy06;
-	[SerializeField]
-	private GameObject enemy07;
+	private GameObject[] enemy;
+
+	void Start(){
+		
+	}
+
+	public void SetEnemyActive ( int index, bool active ) {
+		enemy [index].SetActive (active);
+	}
+
+	public void SetAllEnemyActive( bool active ) {
+		foreach( GameObject enemyUnit in enemy ){
+			enemyUnit.SetActive (active);
+		}
+	}
 }

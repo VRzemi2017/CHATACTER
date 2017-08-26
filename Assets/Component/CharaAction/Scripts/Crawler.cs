@@ -10,7 +10,7 @@ public class Crawler: MonoBehaviour {
 
 	//Self components
 	private Transform myTransform;
-	private Rigidbody rbody;
+	//private Rigidbody rbody;
 
 	//Targeting
 	[SerializeField]
@@ -22,8 +22,7 @@ public class Crawler: MonoBehaviour {
 	private float timer;
 	public float stopTimer = 0f;
 
-	// Path loop
-	public bool patrolLoop;
+	public bool patrolLoop; 			// path loop
 	private bool playerSpotted = false; // Player spotted
 	public float agroDis = 10.0f; 		// Player attack distance
 
@@ -32,9 +31,9 @@ public class Crawler: MonoBehaviour {
 	private Transform player2;
 
 	private void Start( ){
-		rbody = GetComponent<Rigidbody> (); 						     // RBody get
+		//rbody = GetComponent<Rigidbody> (); 						     // RBody get
 		myTransform = transform; 										 // Transform set
-		player1 = GameObject.FindGameObjectWithTag("MainCamera").transform; // find Player1 position
+		player1 = GameObject.FindGameObjectWithTag("Player").transform; // find Player1 position
 //		player2 = GameObject.FindGameObjectWithTag ("Player2").transform;// find Player2 position
 	}
 		
@@ -45,16 +44,7 @@ public class Crawler: MonoBehaviour {
 			Move ();
 		} else if (patrolLoop) {
 			nowTarget = 0;
-		} else if (Vector3.Distance (myTransform.position, player1.position) <= agroDis) {
-			AttackPlayer1 ();
-		}
-
-		// Attack player within range 
-		/*if (Vector3.Distance (myTransform.position, player1.position) <= agroDis) {
-			AttackPlayer1 ();
-		} else if (Vector3.Distance (myTransform.position, player2.position) <= agroDis) {
-			AttackPlayer2 ();
-		} */
+		} 
 	}
 		
 	// Move towards target
@@ -74,53 +64,58 @@ public class Crawler: MonoBehaviour {
 				nowTarget++;
 				timer = 0;
 			}
+		} else if (playerSpotted) { // Attack player
+			target = player1.position;
+			dir = player1.position - myTransform.position;
+			myTransform.position = Vector3.MoveTowards (myTransform.position, target, moveSpeed * Time.deltaTime);
+			myTransform.LookAt (target);
 		}
 	}
 
 	//Change speed to simulate jump 
 	private void OnTriggerEnter( Collider other ) {
-		if (other.tag == "SpeedUp") {
+		if (other.tag == "SpeedUp") { 			 // speed boost to simulate jumping ( blue spheres )
 			moveSpeed = 15.0f;
 			stopTimer = 0f;
-		} else if (other.tag == "SpeedNormal") {
+		} else if (other.tag == "SpeedNormal") { // reset speed to normal ( yellow spheres ) !! buggy
 			stopTimer = 3.0f;
-			moveSpeed = 2.0f;
-		} else if (other.tag == "Wait") {
+			moveSpeed = 5.0f;
+		} else if (other.tag == "Wait") {		 // wait before moving / jumping ( orange spheres )
 			stopTimer = 3.0f;
 			moveSpeed = 15.0f;
 		} else {
-			moveSpeed = 5.0f;
+			moveSpeed = 5.0f;                    // usual speed
 		}
 
 		// Rotate transform towards next target
-		if (other.tag == "SpeedUp" || other.tag == "SpeedNormal" || other.tag == "nowTarget" || other.tag == "Wait" ) {
-			myTransform.LookAt (targets [nowTarget + 1]);
+		if (other.tag == "SpeedUp" || other.tag == "SpeedNormal" || other.tag == "nowTarget" || other.tag == "Wait") {
+				myTransform.LookAt (targets [nowTarget + 1]);
+		}
+
+		// Spot player
+		if (other.tag == "Player") {
+			playerSpotted = true;
+			moveSpeed = 15.0f;
 		}
 	}
 
 	// Reset wait time to normal
 	private void OnTriggerExit ( Collider other ) {
+		// reset timer to normal
 		if (other.tag == "Wait" || other.tag == "SpeedUp" ) {
 			stopTimer = 0.5f;
 		}
+
+		// Lose player
+		if (other.tag == "Player") {
+			playerSpotted = false;
+		}
+
+		// Destroy object if it leaves playzone ( DEBUG )
+		if (other.tag == "Playzone") {
+			Destroy (gameObject);
+		}
 	}
-
 		
-  // Player1 interaction
-    private void AttackPlayer1() {
-		Debug.Log ("Attacked Player1");
-		moveSpeed = 5.0f;
-		Vector3 target = player1.position;
-		Vector3 dir = player1.position - myTransform.position;
-		myTransform.position = Vector3.MoveTowards (myTransform.position, target, moveSpeed * Time.deltaTime);
-    }
-
-	/*// Player2 interaction
-	private void AttackPlayer2() {
-		moveSpeed = 5.0f;
-		Vector3 target = player2.position;
-		Vector3 dir = player2.position - myTransform.position;
-		myTransform.position = Vector3.MoveTowards (myTransform.position, target, moveSpeed * Time.deltaTime);
-	}*/
 }
 
