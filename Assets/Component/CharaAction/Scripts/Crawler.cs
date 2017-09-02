@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class Crawler: MonoBehaviour {
 		
 	//Basic parametrs
-	public float moveSpeed = 5.0f;     // move speed
+	public float moveSpeed = 15.0f;     // move speed
 
 	//Self components
 	private Transform myTransform;
@@ -31,7 +31,6 @@ public class Crawler: MonoBehaviour {
 	private Transform player1;
 	private Transform player2;
 	private Transform mainCamera;
-	private Transform wand;
 
 	private void Start( ){
 		//rbody = GetComponent<Rigidbody> (); 						     // RBody get
@@ -39,7 +38,6 @@ public class Crawler: MonoBehaviour {
 		player1 = GameObject.FindGameObjectWithTag("Player").transform; // find Player1 position
 //		player2 = GameObject.FindGameObjectWithTag ("Player2").transform;// find Player2 position
 		mainCamera = GameObject.FindGameObjectWithTag ( "MainCamera" ).transform;
-		wand = GameObject.FindGameObjectWithTag ("Wand").transform;
 	}
 		
 	private void Update(){
@@ -82,26 +80,16 @@ public class Crawler: MonoBehaviour {
 		if (other.tag == "SpeedUp") { 			 // speed boost to simulate jumping ( blue spheres )
 			moveSpeed = 15.0f;
 			stopTimer = 0f;
-			myTransform.localScale = new Vector3 (2f, 2f, 2f);
 			myTransform.localRotation = Quaternion.identity;
-		} else if (other.tag == "SpeedNormal") { // reset speed to normal ( yellow spheres ) !! buggy
+		} else if (other.tag == "SpeedNormal") { // reset speed to normal ( yellow spheres ) !! buggy, try not to use
 			stopTimer = 3.0f;
 			moveSpeed = 5.0f;
 		} else if (other.tag == "Wait") {		 // wait before moving / jumping ( orange spheres )
 			stopTimer = 3.0f;
 			moveSpeed = 15.0f;
-			myTransform.localScale = new Vector3 (2.5f, 2.5f, 2.5f);
 			myTransform.localRotation = Quaternion.identity;
-		} else {
-			moveSpeed = 5.0f;                    // usual speed
-		}
-
-
-		// Be killed if touched by Wand 
-		if (other.tag == "Wand" && myTransform.localScale.x >= 0 && myTransform.localScale.y >= 0 && myTransform.localScale.z >= 0 ) {
-			myTransform.localScale -= new Vector3 (0.3f, 0.3f, 0.3f);
-		}
-
+		} 
+			
 		// Rotate transform towards next target
 		if (other.tag == "SpeedUp" || other.tag == "SpeedNormal" || other.tag == "nowTarget" || other.tag == "Wait") {
 			myTransform.LookAt (targets [nowTarget + 1].position);
@@ -126,7 +114,7 @@ public class Crawler: MonoBehaviour {
 			playerSpotted = false;
 		}
 			
-		// Destroy game object if it leaves Plyzone ( DEBUG )
+		// Destroy game object if it leaves Playzone ( DEBUG )
 		if (other.tag == "Playzone") {
 			Destroy (gameObject);
 		}
