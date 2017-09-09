@@ -6,9 +6,8 @@ public class CharaManager : MonoBehaviour {
 
 	private GameObject[] enemy;
 
-	void Start(){
-		
-	}
+	public int damage = 1;
+
 
 	public void SetEnemyActive ( int index, bool active ) {
 		enemy [index].SetActive (active);

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 
 public class MainManager : MonoBehaviour {
+	[SerializeField] Transform[] players;
 
     public enum GameState
     {
@@ -21,4 +22,8 @@ public class MainManager : MonoBehaviour {
         GAME_STATE_MAX,
     }
     public static GameState CurrentState = GameState.GAME_START;
+
+	public Transform[] GetPlayers(){
+		return players;
+	}
 }

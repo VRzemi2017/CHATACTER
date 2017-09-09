@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Crawler: MonoBehaviour {
+public class CreatureScript: MonoBehaviour {
 		
 	//Basic parametrs
 	public float moveSpeed = 15.0f;     // move speed
@@ -15,12 +15,19 @@ public class Crawler: MonoBehaviour {
 	//Targeting
 	[SerializeField]
 	private Transform[] targets; // target array
-
 	private int nowTarget; // current target
 
 	// Time manager
 	private float timer;
-	public float stopTimer = 0f;
+	private float stopTimer = 0f;
+
+	private float timer2;
+
+	[Range(1f, 10f)]
+	public float attackTimer = 4f;
+
+	[Range(1f, 100f)]
+	public float damage = 1f;
 
 	public bool patrolLoop; 			// path loop
 	private bool playerSpotted = false; // Player spotted
@@ -32,11 +39,11 @@ public class Crawler: MonoBehaviour {
 	private Transform player1;
 	private Transform player2;
 	private Transform mainCamera;
+
 	private void Start( ){
-		//rbody = GetComponent<Rigidbody> (); 						     // RBody get
 		myTransform = transform; 										 // Transform set
 		player1 = GameObject.FindGameObjectWithTag("Player").transform; // find Player1 position
-//		player2 = GameObject.FindGameObjectWithTag ("Player2").transform;// find Player2 position
+//		player2 = GameObject.FindGameObjectWithTag ("Player2").transform;	// find Player2 position
 		mainCamera = GameObject.FindGameObjectWithTag ( "MainCamera" ).transform;
 		anim = GetComponent<Animator> ();
 	}
@@ -65,7 +72,7 @@ public class Crawler: MonoBehaviour {
 			if (timer == 0) {
 				timer = Time.time;
 			}
-			if ((Time.time - timer) >= stopTimer) {
+			if ((Time.time - timer) >= stopTimer ) {
 				nowTarget++;
 				timer = 0; 
 			}
@@ -74,6 +81,12 @@ public class Crawler: MonoBehaviour {
 			dir = player1.position - myTransform.position;
 			myTransform.position = Vector3.MoveTowards (myTransform.position, target, moveSpeed * Time.deltaTime);
 			myTransform.LookAt (mainCamera);
+			timer2 += Time.deltaTime;
+			//leave player alone after 4 seconds
+			if (timer2 >= attackTimer) {
+				timer2 = 0;
+				playerSpotted = false;
+			}
 		}
 	}
 
@@ -100,7 +113,7 @@ public class Crawler: MonoBehaviour {
 		if (other.CompareTag ("SpeedUp") || other.CompareTag ("Wait")) {
 			myTransform.LookAt (targets [nowTarget + 1].position);
 		} else if (other.CompareTag ("Spawn")) {
-			myTransform.LookAt (targets [nowTarget].position);
+			myTransform.LookAt (targets [nowTarget + 1].position);
 		}
 
 		// Spot player
